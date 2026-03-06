@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { openDb } from '@/lib/db';
+import { getDb } from '@/lib/db';
 
 export async function GET() {
-    const db = await openDb();
+    const db = await getDb();
     const workouts = await db.all('SELECT * FROM workouts');
 
     // JSON string olan egzersizleri objeye çeviriyoruz
